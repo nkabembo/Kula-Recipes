@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+$champagne: #F6E9D0;
+$purple: #AC2371;
+$orange: #B80200;
+$yellow: #EED01B;
+:root{
+  font-family: "EB Garamond", serif;
+}
+ul {
+  list-style: none;
+}
+
+ul > li::before {
+  content: "•"; 
+  color: $purple;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em
+}
+ol {
+  list-style: none;
+  counter-reset: li;
+}
+li::before {
+  content: counter(li);
+  color: $yellow;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em
+}
+li {
+  counter-increment: li;
+}
+#error-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+body{
+  margin: 0;
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $champagne; 
+  border-radius: 10px;
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  background: lightgray; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $champagne; 
+}
+.app{
+  max-width: 100%;
+  box-sizing: border-box;
+  margin:0;
+  text-align: center;
+  .recipes{
+    display: flex;
+    padding: 3em 4em;
+    overflow-x: scroll;
+    width: 80%;
+    gap: 50px;
+    margin: 0 40px 160px 40px;
+    .recipe-card{
+      background-color: #AC2371;
+      border-radius: 15px;
+      padding: 20px 20px;
+      width: 380px;
+      display: flex;
+      gap: 2px;
+      flex-direction: column;
+      img {
+        width: 280px;
+        object-fit: cover;
+      }
+      a{
+        color: white;
+      }
+      a:hover{
+        color: $yellow;
+      }
+    }
+  }
+  .single-recipe{
+    margin: 0 50px;
+    .recipe-title{
+      text-align: start;
+    }
+    .bottom-content{
+      margin: 0 40px;
+    }
+    .print-btn{
+      align-self:flex-end;
+      margin-right: 1.5em;
+    }
+    .user{
+      display: flex;
+      flex-direction: column;
+    }
+    .user-data{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .times{
+      display: flex;
+      gap: 10px;
+    }
+    .timeline{
+      text-align: start;
+    }
+    .user-top{
+      display: flex;
+      justify-content: space-between;
+    }
+    .btns{
+      font-size: 25px;
+    }
+    button{
+      padding: 10px 25px;
+      margin-bottom: 20px;
+      font-size: 22px;
+      background-color: $champagne;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover{
+      outline: 3px solid $orange;
+    }
+    .banner-img{
+      width: 85vw;
+      height: 400px;
+      object-fit: cover;
+    }
+    .user-recipe-profile-photo{
+      height: 90px;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+    }
+  }
+  .user-profile{
+    margin-top: 10px;
+    input,label, button{
+      margin:8px;
+    }
+    .profile-photo{
+      width: 180px;
+      border-radius: 50%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+    button{
+      padding: 10px 25px;
+      font-size: 22px;
+      background-color: $champagne;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover{
+      outline: 2px solid $purple;
+    }
+  }
+  //Home Page
+  .home{
+    padding: 100px;
+    .signup-btn{
+      color: $purple;
+      background-color: $champagne;
+    }
+    .signup-btn:hover{
+      outline: 2px dashed $purple;
+    }
+  }
+  .login, .sign-up{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    background-image:url('./assets/annie-spratt-5GsbwkrCfuM-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .home, .about, .create-recipe, .user-profile, .single-recipe{
+    min-height: 100vh;
+    display: flex;
+    font-size: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .create-recipe{
+    flex-direction: row;
+    gap: 10px;
+    align-items: start;
+    margin: 0 auto;
+    label{
+      color: $purple;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+    .main-area{
+      flex: 75%;
+      display: flex;
+      flex-direction: column;
+      padding: 0px 40px;
+      justify-content: space-between;
+      .ingredient-btn{
+        margin-top: 20px;
+        align-self: center;
+        padding: 10px 20px;
+        border: none;
+        background-color: $yellow;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .ingredient-btn:hover{
+        border-bottom-right-radius: 30px;
+        outline: 2px solid black;
+      }
+    }
+    .side-area{
+      flex: 25%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-center;
+      gap: 10px;
+      input[type="file"]{
+        border: 1px solid black;
+      }
+      button{
+        padding: 4px 10px;
+        border: none;
+        background-color: $yellow;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      button:hover{
+        outline: 2px solid black;
+      }
+    }
+  }
+  $breakpoint-tablet: 768px;
+  @media (max-width: $breakpoint-tablet) {
+    .create-recipe{
+      flex-wrap: wrap;
+    }
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em $champagne);
+  }
+  a{
+    text-decoration: none;
+    margin: 15px;
+    cursor: pointer;
+  }
+  a:hover{
+    color: $orange;
+  }
+  fieldset{
+    display: flex;
+    font-size: 1.5em;
+    flex-direction: column;
+    padding: 100px;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: $champagne;
+    border: 5px solid $purple;
+    gap: 10px;
+    legend{
+      border-radius: 5px;
+      background: $purple;
+      font-size: 32px;
+      padding: 5px 10px ;
+      border: 4px solid white;
+    }
+    a{
+      margin: 0;
+    }
+    button{
+      border: none;
+      background-color: $yellow;
+      padding: 10px 30px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    button:hover{
+      transform: scale(1.2);
+    }
+    input[type="file"]{
+      border: 1px solid $purple;
+    }
+    
+  }
+  .signup-btn, .about-btn, .login-btn,.logout-btn{
+    padding: 10px 20px;
+  }
+  //NavBar
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2px;
+    flex-wrap:wrap;
+    padding-bottom: 1em;
+    a:not(.logo-link) {
+      font-size: 1.4em;
+    }
+    img{
+      height: 7.5em;
+      object-fit: cover;
+    }
+    .signup-btn{
+      color: $purple;
+      background-color: $champagne;
+    }
+    .signup-btn:hover{
+      outline: 2px dashed $purple;
+    }
+    .about-btn{
+      background-color: $orange;
+      color: white;
+    }
+    .about-btn:hover{
+      background-color: white;
+      outline: 2px dotted $orange;
+      color: black;
+    }
+    .login-btn{
+      color: white;
+      border-radius: 50%;
+      background-color: $purple;
+    }
+    .login-btn:hover{
+      outline: 2px solid white;
+      outline-offset: -4px;
+    }
+    .logout-btn{
+      color: white;
+      border-radius: 15px;
+      background-color: black;
+    }
+    .logout-btn:hover{
+      outline: 2px solid $purple;
+      outline-offset: -4px;
+    }
+
+  }
+  //Footer
+  footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $orange;
+    padding: 2em;
+    margin-top: auto;
+    p{
+      color: white;
+      font-size: 1.4em;
+    }
+    .logo {
+      height: 6em;
+      padding: 1.5em;
+      will-change: filter;
+      transition: filter 300ms;
+    }
+  }
+
+
+
+}
+
+
+
